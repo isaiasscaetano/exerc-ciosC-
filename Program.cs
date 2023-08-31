@@ -1,27 +1,89 @@
-﻿// See https://aka.ms/new-console-template for more information
-using System.Runtime.Serialization;
-using System;
-internal class Program
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace calculadora
 {
-    private static void Main(string[] args)
-    {            
-        int n1, n2, somas;
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("qual operaçao deseja fazer:");
+            Console.WriteLine("1- adicao:");
+            Console.WriteLine("2- Subtraçao:");
+            Console.WriteLine("3- multiplicação");
+            Console.WriteLine("4- divisao \n");
 
-        Console.WriteLine("Digite o primeiro número: ");
-         n1 = int.Parse(Console.ReadLine());
+         
+            int operacao = int.Parse(Console.ReadLine());
 
-        Console.WriteLine("Digite o segundo número: ");
-         n2 = int.Parse(Console.ReadLine());
+            Console.WriteLine("digite o primeiro numero:");
+            int num1 = int.Parse(Console.ReadLine());
 
+            Console.WriteLine("digite o segundo numero:");
+            int num2 = int.Parse(Console.ReadLine());
 
-        somas = n1 + n2;
+            int resultado = 0;
 
+            switch (operacao)
+            {
+                case 1:
+                    {
+                        resultado = Adicao(num1, num2);
+                        break;
+                    }
 
-        Console.WriteLine("O resultado da soma é: " + somas);
+                case 2:
+                    {
+                        resultado = Subtracao(num1, num2);
+                        break;
+                    }
+                case 3:
+                    {
+                        resultado = Multiplicacao(num1, num2);
+                        break;
+                    }
 
+                case 4:
+                    {
+                        resultado = Divisao(num1, num2);
+                        break;
+                    }
+                default:
+                    Console.WriteLine("numero invalido, digite outro numero");
+                    break;
+            }
+            Console.WriteLine("o resultado da operaçao com os numero{0} e {1} é; {2}", num1, num2, resultado);
 
-                Console.ReadKey();
-            
-        
+            Console.ReadLine();
+        }
+
+        public static int Adicao(int numero1, int numero2)
+        {
+            int result = numero1 + numero2;
+            return result;
+        }
+
+        public static int Subtracao(int numero1, int numero2)
+        {
+            int result = numero1 - numero2;
+            return result;
+        }
+
+        public static int Multiplicacao(int numero1, int numero2)
+        {
+            int result = numero1 * numero2;
+            return result;
+        }
+
+        public static int Divisao(int numero1, int numero2)
+        {
+            int result = numero1 / numero2;
+            return result;
+        }
+
     }
+
 }
